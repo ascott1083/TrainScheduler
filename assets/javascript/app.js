@@ -20,7 +20,6 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
-        // logic for storing and retrieving the most recent user.
         trainName = $("#nameInput").val().trim();
         destination = $("#destinationInput").val().trim();
         firstTrain = $("#traintimeInput").val().trim();
@@ -30,12 +29,10 @@ $(document).ready(function () {
 
             alert("Please add further details for new train");
         } else {
-            // placing the value in the empty form feild
 
             $(".form-control").val("");
             console.log(name, destination, firstTrain, frequency);
 
-            // Code for the push to firebase
             database.ref().push({
 
                 trainName: trainName,
