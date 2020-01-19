@@ -44,24 +44,8 @@ $(document).ready(function () {
         }
     });
 
-
-
-
-
-    //   controlling data entries for the form feild
-    // $(".form-control").on("keyup", function () {
-    //     var name = $("#nameInput").val().trim();
-    //     var city = $("#destinationInput").val().trim();
-    //     var time = $("#traintimeInput").val().trim();
-    //     var frequent = $("#frequencyInput").val().trim();
-
-
-    // });
-
-    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
     database.ref().on("child_added", function (childSnapshot) {
         var trainData = childSnapshot.val();
-        // Log everything that's coming out of snapshot
         console.log(trainData.trainName);
         console.log(trainData.destination);
         console.log(trainData.firstTrain);
@@ -76,7 +60,6 @@ $(document).ready(function () {
         console.log("New Train",newTrain)
          newTrain = moment(newTrain).format("HH:mm");
          console.log('Updated new train', newTrain)
-        ///var key = childSnapshot.key;
 
 
         var newRow = $("<tr>");
@@ -86,11 +69,9 @@ $(document).ready(function () {
         newRow.append("<td>" + newTrain + "</td>");
         newRow.append("<td>" + arrivalTime + "</td>");
 
-        // appending a new row for my table body 
         var tableBody = $("tbody")
         tableBody.append(newRow)
 
     });
 
-    // $(document).on("click", ".")
 })
